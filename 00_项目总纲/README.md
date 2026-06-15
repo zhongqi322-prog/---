@@ -19,6 +19,7 @@
 
 ## 总纲导航
 
+- [[OBSIDIAN_HOME|Obsidian 工作台]]
 - [[PROJECT_STAGE]]
 - [[STAGE_RULES]]
 - [[CONTEXT]]
@@ -28,4 +29,6 @@
 - [[MVP范围]]
 - [[任务看板]]
 - [[开发日志]]
+- [[决策记录]]
+- [[灵感收集]]
 - [[AGENTS]]
