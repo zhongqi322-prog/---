@@ -1,0 +1,37 @@
+name: 文档问题
+description: 报告文档冲突、缺失、过期或表达不清
+title: "[Docs] "
+labels:
+  - documentation
+body:
+  - type: input
+    id: file
+    attributes:
+      label: 涉及文件
+      placeholder: 例如 00_项目总纲/CONTEXT.md
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 内容冲突
+        - 内容重复
+        - 内容缺失
+        - 内容过期
+        - 链接失效
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题说明
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议处理方式
+

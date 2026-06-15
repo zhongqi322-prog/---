@@ -1,0 +1,45 @@
+name: Bug 报告
+description: 报告可以复现的项目问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: 请勿提交真实用户隐私、密钥或其他敏感信息。
+  - type: input
+    id: stage
+    attributes:
+      label: 当前项目阶段
+      placeholder: 例如 P2 可点击原型阶段
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么？
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开……
+        2. 点击……
+        3. 看到……
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 浏览器、设备、系统或相关版本。
+

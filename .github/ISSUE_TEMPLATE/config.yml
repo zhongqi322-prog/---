@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 安全与隐私问题
+    url: https://github.com/zhongqi322-prog/---/security
+    about: 请不要在公开 Issue 中提交敏感信息。
+

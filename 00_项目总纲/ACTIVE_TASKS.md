@@ -60,3 +60,23 @@
 ## 阶段状态
 
 P0 执行中。建设任务已完成，尚未进入正式审核。
+
+### TASK-0003：建立 GitHub 仓库治理内容
+
+状态：已完成
+
+负责 Agent：总控架构 Agent
+
+输出文件：
+- `.gitattributes`
+- `CONTRIBUTING.md`
+- `SECURITY.md`
+- `.github/PULL_REQUEST_TEMPLATE.md`
+- `.github/ISSUE_TEMPLATE/*.yml`
+
+验收结果：
+- [x] 已建立贡献与安全说明
+- [x] 已建立 Pull Request 模板
+- [x] 已建立 Bug、文档问题与功能建议模板
+- [x] 未提前创建代码 CI
+- [x] 未擅自选择开源许可证
