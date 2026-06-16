@@ -20,9 +20,9 @@
 
 ## 2. 当前阶段目标
 
-当前 P2 阶段目标是完成中文版 MVP 的可点击网站原型。
+当前 P3 阶段目标是建立古籍知识库的第一批结构化内容。
 
-P2 已创建 Next.js + React + TypeScript + Tailwind CSS 原型，当前等待阶段审核。
+P2 已创建并审核通过 Next.js + React + TypeScript + Tailwind CSS 可点击原型。P3 开始前必须向用户索取真实古籍资料或确认资料来源。
 
 第一版要求：
 
