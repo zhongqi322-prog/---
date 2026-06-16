@@ -1,0 +1,67 @@
+{
+  "description": "传统术数古籍 AI 解读平台 P3 古籍片段统一结构。当前只定义结构，不包含真实古籍内容。",
+  "required_fields": [
+    "id",
+    "book_title",
+    "edition",
+    "chapter",
+    "source_text",
+    "plain_explanation",
+    "keywords",
+    "module",
+    "scenarios",
+    "source_reference",
+    "copyright_status",
+    "review_status"
+  ],
+  "optional_fields": [
+    "author_or_period",
+    "translation_notes",
+    "uncertainty_notes",
+    "created_at",
+    "updated_at"
+  ],
+  "allowed_modules": [
+    "bazi",
+    "ziwei",
+    "fengshui",
+    "yijing",
+    "dream",
+    "palm",
+    "general"
+  ],
+  "allowed_copyright_status": [
+    "待确认",
+    "可使用",
+    "不可使用"
+  ],
+  "allowed_review_status": [
+    "待用户提供",
+    "待审核",
+    "已审核",
+    "退回"
+  ],
+  "rules": [
+    "不得编造古籍原文、书名、章节、版本或出处。",
+    "白话解释必须与原文分离。",
+    "每条片段必须可追溯到具体来源。",
+    "未审核或版权未确认的内容不得面向用户展示。",
+    "不得输出绝对化预测或恐吓性解释。"
+  ],
+  "example_empty_entry": {
+    "id": "",
+    "book_title": "",
+    "author_or_period": "",
+    "edition": "",
+    "chapter": "",
+    "source_text": "",
+    "plain_explanation": "",
+    "keywords": [],
+    "module": "",
+    "scenarios": [],
+    "source_reference": "",
+    "copyright_status": "待确认",
+    "review_status": "待用户提供",
+    "uncertainty_notes": ""
+  }
+}
