@@ -70,7 +70,7 @@ export const services: ServiceConfig[] = [
     subtitle: "帮助用户把关系问题结构化，得到有边界的文化参考。",
     category: "关系",
     paid: false,
-    highlight: "替代宝宝起名入口，专注关系困惑和沟通建议。",
+    highlight: "专注关系困惑和沟通建议，帮助用户把问题说清楚。",
     fields: [
       { name: "status", label: "关系状态", type: "select", options: ["单身", "暧昧", "恋爱", "婚姻", "分手后"] },
       { name: "question", label: "关系困惑", type: "textarea", placeholder: "请描述你希望厘清的问题。" },
