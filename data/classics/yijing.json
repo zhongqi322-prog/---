@@ -1,7 +1,40 @@
 {
   "module": "yijing",
   "module_name": "易经问事",
-  "status": "waiting_for_user_sources",
+  "status": "first_batch_structured",
   "source_policy": "真实古籍内容必须由用户提供或确认来源；不得编造。",
-  "entries": []
+  "entries": [
+    {
+      "id": "yijing-zhouyi-qian-001",
+      "book_title": "周易",
+      "author_or_period": "先秦经典；具体版本待确认",
+      "edition": "用户提供 Markdown：D:\\工作\\2026\\老祖宗-玄学\\古籍\\周易(1).md",
+      "chapter": "上经 > 卷一 > 乾",
+      "source_text": "卦辞：乾，元，亨，利，贞。象曰：天行健，君子以自强不息。",
+      "plain_explanation": "该段常用于解释乾卦所代表的主动、刚健、持续进取等象义。用于问事报告时，只能作为行动取向参考，不应作确定性预测。",
+      "keywords": ["乾卦", "元亨利贞", "天行健", "自强不息"],
+      "module": "yijing",
+      "scenarios": ["易经问事", "行动建议"],
+      "source_reference": "周易(1).md > 上经 > 卷一 > 乾",
+      "copyright_status": "待确认",
+      "review_status": "待审核",
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+    },
+    {
+      "id": "yijing-zhouyi-kun-001",
+      "book_title": "周易",
+      "author_or_period": "先秦经典；具体版本待确认",
+      "edition": "用户提供 Markdown：D:\\工作\\2026\\老祖宗-玄学\\古籍\\周易(1).md",
+      "chapter": "上经 > 卷一 > 坤",
+      "source_text": "卦辞：坤，元，亨，利牝马之贞。象曰：地势坤，君子以厚德载物。",
+      "plain_explanation": "该段常用于解释坤卦所代表的承载、顺势、稳定和包容。用于问事报告时，应提示用户结合现实条件判断。",
+      "keywords": ["坤卦", "厚德载物", "顺势", "承载"],
+      "module": "yijing",
+      "scenarios": ["易经问事", "关系与处事建议"],
+      "source_reference": "周易(1).md > 上经 > 卷一 > 坤",
+      "copyright_status": "待确认",
+      "review_status": "待审核",
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+    }
+  ]
 }

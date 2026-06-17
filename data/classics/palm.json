@@ -1,6 +1,6 @@
 {
   "module": "palm",
-  "module_name": "相术 / 手相",
+  "module_name": "手相解析",
   "status": "waiting_for_user_sources",
   "source_policy": "真实古籍内容必须由用户提供或确认来源；不得编造。",
   "entries": []
