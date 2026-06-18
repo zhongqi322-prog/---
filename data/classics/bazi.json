@@ -12,14 +12,22 @@
       "chapter": "卷一 一、论十干十二支",
       "source_text": "天地之间，一气而已。惟有动静，遂分阴阳。有老少，遂分四象。",
       "plain_explanation": "该段以一气、动静、阴阳、四象说明干支五行的理论起点，可作为八字报告中解释基础概念的引用。",
-      "keywords": ["一气", "阴阳", "四象", "十干十二支"],
+      "keywords": [
+        "一气",
+        "阴阳",
+        "四象",
+        "十干十二支"
+      ],
       "module": "bazi",
-      "scenarios": ["八字基础说明", "五行结构解释"],
+      "scenarios": [
+        "八字基础说明",
+        "五行结构解释"
+      ],
       "source_reference": "子平真诠.md > 卷一 > 一、论十干十二支",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于八字传统文化解释，不构成命运定论、现实结果承诺或专业决策建议。",
-      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "bazi-ziping-zpzc-002",
@@ -29,14 +37,22 @@
       "chapter": "卷二 八、论用神",
       "source_text": "八字用神，专求月令。以日干配月令地支，而生克不同，格局分焉。",
       "plain_explanation": "该段说明格局派重视月令取用，可用于报告中解释为什么要看出生月份和月令。",
-      "keywords": ["用神", "月令", "格局", "日干"],
+      "keywords": [
+        "用神",
+        "月令",
+        "格局",
+        "日干"
+      ],
       "module": "bazi",
-      "scenarios": ["八字格局解释", "用神说明"],
+      "scenarios": [
+        "八字格局解释",
+        "用神说明"
+      ],
       "source_reference": "子平真诠.md > 卷二 > 八、论用神",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于八字传统文化解释，不构成命运定论、现实结果承诺或专业决策建议。",
-      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "bazi-qiong-tqbj-001",
@@ -46,14 +62,22 @@
       "chapter": "五行总论",
       "source_text": "北方阴极而生寒，寒生水。南方阳极而生热，热生火。东方阳散以泄而生风，风生木。西方阴止以收而生燥，燥生金。中央阴阳交而生温，温生土。",
       "plain_explanation": "该段把五行与方位、寒热、阴阳变化联系起来，可用于说明五行不是孤立符号，而是传统时令与气候观念的一部分。",
-      "keywords": ["五行", "方位", "阴阳", "寒热"],
+      "keywords": [
+        "五行",
+        "方位",
+        "阴阳",
+        "寒热"
+      ],
       "module": "bazi",
-      "scenarios": ["五行解释", "八字基础报告"],
+      "scenarios": [
+        "五行解释",
+        "八字基础报告"
+      ],
       "source_reference": "OK-穷通宝鉴_余春台.md > 五行总论",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于八字传统文化解释，不构成命运定论、现实结果承诺或专业决策建议。",
-      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "bazi-ditian-dts-001",
@@ -63,14 +87,22 @@
       "chapter": "上篇：通神论 > 第七章 天干",
       "source_text": "甲木参天，脱胎要火。春不容金，秋不容土。火炽乘龙，水宕骑虎。地润天和，植立千古。",
       "plain_explanation": "该段以诗赋方式描述甲木在不同条件下的喜忌，可用于解释十干体性时提醒用户不可离开时令和组合判断。",
-      "keywords": ["甲木", "天干", "时令", "喜忌"],
+      "keywords": [
+        "甲木",
+        "天干",
+        "时令",
+        "喜忌"
+      ],
       "module": "bazi",
-      "scenarios": ["天干体性解释", "八字报告引用"],
+      "scenarios": [
+        "天干体性解释",
+        "八字报告引用"
+      ],
       "source_reference": "滴天髓.md > 上篇：通神论 > 第七章 天干",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于八字传统文化解释，不构成命运定论、现实结果承诺或专业决策建议。",
-      "uncertainty_notes": "原文件已注明作者与版本存在争议，需保留不确定性说明。"
+      "uncertainty_notes": "原文件已注明作者与版本存在争议，需保留不确定性说明。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "bazi-smtk-001",
@@ -80,14 +112,22 @@
       "chapter": "卷一 > 论地支藏遁",
       "source_text": "子藏癸水，丑藏己土、癸水、辛金，寅藏甲木、丙火、戊土，卯藏乙木，辰藏戊土、乙木、癸水，巳藏丙火、戊土、庚金，午藏丁火、己土，未藏己土、丁火、乙木，申藏庚金、壬水、戊土，酉藏辛金，戌藏戊土、辛金、丁火，亥藏壬水、甲木。",
       "plain_explanation": "该段列出十二地支所藏天干，可用于解释八字中地支并非单一五行，而包含本气、余气等层次。",
-      "keywords": ["地支藏干", "十二支", "人元", "三元"],
+      "keywords": [
+        "地支藏干",
+        "十二支",
+        "人元",
+        "三元"
+      ],
       "module": "bazi",
-      "scenarios": ["地支藏干解释", "八字结构说明"],
+      "scenarios": [
+        "地支藏干解释",
+        "八字结构说明"
+      ],
       "source_reference": "三命通会(1).md > 卷一 > 论地支藏遁",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于八字传统文化解释，不构成命运定论、现实结果承诺或专业决策建议。",
-      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，版本和版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     }
   ]
 }

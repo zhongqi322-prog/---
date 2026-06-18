@@ -1,7 +1,83 @@
 {
   "module": "dream",
   "module_name": "周公解梦",
-  "status": "waiting_for_user_sources",
-  "source_policy": "真实周公解梦类古籍内容必须由用户提供或确认来源；当前目录未发现专门的周公解梦资料，不得编造。",
-  "entries": []
+  "status": "first_batch_ready",
+  "source_policy": "真实周公解梦类古籍内容必须基于用户提供或确认来源；本批内容来自用户提供 Markdown，用户于 2026-06-19 确认出处为《维基文库》，可用于正式产品。",
+  "entries": [
+    {
+      "id": "dream-zhougong-001",
+      "book_title": "周公解梦",
+      "author_or_period": "相传周公旦（姬旦）所著",
+      "source_text": "夜有纷纷梦，神魂预吉凶。庄周虚幻蝶，吕望兆熊飞。",
+      "plain_explanation": "该段用于说明《周公解梦》属于传统占梦文本，适合作为解梦报告的文化来源说明。产品中应把它作为民俗文化解释，而不是现实结果承诺。",
+      "keywords": [
+        "周公解梦",
+        "占梦",
+        "梦境",
+        "传统文化"
+      ],
+      "source_reference": "02_古籍录入/raw/周公解梦/source.md > 诗曰",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
+      "risk_reminder": "本条仅用于周公解梦传统文化解释，不构成现实结果承诺、心理诊断或医疗建议。",
+      "uncertainty_notes": "用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。",
+      "edition": "用户提供 Markdown：D:\\工作\\2026\\老祖宗-玄学\\古籍\\周公解梦.md；用户确认出处为《维基文库》",
+      "chapter": "诗曰",
+      "module": "dream",
+      "scenarios": [
+        "周公解梦报告来源说明",
+        "解梦风险边界说明"
+      ]
+    },
+    {
+      "id": "dream-zhougong-002",
+      "book_title": "周公解梦",
+      "author_or_period": "相传周公旦（姬旦）所著",
+      "source_text": "天晴雨散，百忧去。天明，妇人生贵子。",
+      "plain_explanation": "该条属于天象类梦境解释，体现传统解梦中把晴明天象视作忧虑消散、吉象出现的民俗理解。产品使用时应提示这只是古籍象征解释，不应作绝对预测。",
+      "keywords": [
+        "天象",
+        "天晴",
+        "梦兆",
+        "民俗解梦"
+      ],
+      "source_reference": "02_古籍录入/raw/周公解梦/source.md > 一、天地日月星辰",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
+      "risk_reminder": "本条仅作传统文化和民俗象征解释，不应承诺现实吉凶结果。",
+      "uncertainty_notes": "用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。",
+      "edition": "用户提供 Markdown：D:\\工作\\2026\\老祖宗-玄学\\古籍\\周公解梦.md；用户确认出处为《维基文库》",
+      "chapter": "一、天地日月星辰",
+      "module": "dream",
+      "scenarios": [
+        "天象类梦境解释",
+        "用户梦见晴天或天明"
+      ]
+    },
+    {
+      "id": "dream-zhougong-003",
+      "book_title": "周公解梦",
+      "author_or_period": "相传周公旦（姬旦）所著",
+      "source_text": "地动，主迁官位吉。地裂，主疾病大凶。修平田地，大吉昌。",
+      "plain_explanation": "该条属于地理山石树木类梦象解释，记录传统文本中对地动、地裂、整治田地等梦象的象征判断。产品中只能作为古籍原文引用和民俗说明，不能用于恐吓用户或作健康诊断。",
+      "keywords": [
+        "地理",
+        "地动",
+        "地裂",
+        "梦象"
+      ],
+      "source_reference": "02_古籍录入/raw/周公解梦/source.md > 二、地理山石树木",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
+      "risk_reminder": "本条含传统吉凶语汇，面向用户时必须弱化为民俗象征，不得输出恐吓性或绝对化结论。",
+      "uncertainty_notes": "用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。",
+      "edition": "用户提供 Markdown：D:\\工作\\2026\\老祖宗-玄学\\古籍\\周公解梦.md；用户确认出处为《维基文库》",
+      "chapter": "二、地理山石树木",
+      "module": "dream",
+      "scenarios": [
+        "地理类梦境解释",
+        "用户梦见土地、山石或田地"
+      ]
+    }
+  ]
 }

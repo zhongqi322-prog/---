@@ -12,14 +12,22 @@
       "chapter": "内篇",
       "source_text": "葬者，藏也，乘生气也。夫阴阳之气，噫而为风，升而为云，降而为雨，行乎地中则为生气。",
       "plain_explanation": "该段以“生气”解释传统风水的核心概念，可用于说明风水报告为什么会关注地势、气、水等环境因素。",
-      "keywords": ["葬书", "生气", "阴阳", "风水"],
+      "keywords": [
+        "葬书",
+        "生气",
+        "阴阳",
+        "风水"
+      ],
       "module": "fengshui",
-      "scenarios": ["风水基础概念说明", "住宅风水报告出处"],
+      "scenarios": [
+        "风水基础概念说明",
+        "住宅风水报告出处"
+      ],
       "source_reference": "葬书_郭璞.md > 内篇",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于风水传统文化解释，不构成现实结果承诺、建筑安全意见或专业设计建议。",
-      "uncertainty_notes": "用户提供整理文本，题署、版本和版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，题署、版本和版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "fengshui-yangzhai-sanyao-001",
@@ -29,14 +37,23 @@
       "chapter": "总论",
       "source_text": "阳宅三要：门、主、灶。",
       "plain_explanation": "该句概括阳宅风水常用的三个观察重点：大门、主房和厨房，可用于住宅风水 MVP 的结构化问卷和报告框架。",
-      "keywords": ["阳宅三要", "门", "主", "灶", "住宅风水"],
+      "keywords": [
+        "阳宅三要",
+        "门",
+        "主",
+        "灶",
+        "住宅风水"
+      ],
       "module": "fengshui",
-      "scenarios": ["住宅风水表单设计", "住宅风水报告结构"],
+      "scenarios": [
+        "住宅风水表单设计",
+        "住宅风水报告结构"
+      ],
       "source_reference": "阳宅三要_赵九峰.md > 总论",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于风水传统文化解释，不构成现实结果承诺、建筑安全意见或专业设计建议。",
-      "uncertainty_notes": "用户提供整理文本，文件注明据 QQ 阅读公版书整理，版权状态需继续确认。"
+      "uncertainty_notes": "用户提供整理文本，文件注明据 QQ 阅读公版书整理，版权状态需继续确认。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     },
     {
       "id": "fengshui-qingnang-aoyu-001",
@@ -46,14 +63,22 @@
       "chapter": "青囊奥语",
       "source_text": "山与水，须要明此理。水与山，祸福尽相关。明玄空，只在五行中。",
       "plain_explanation": "该段说明传统风水重视山水关系与五行理法，可用于解释报告中山、水、方位等字段的传统来源。",
-      "keywords": ["青囊奥语", "山水", "玄空", "五行"],
+      "keywords": [
+        "青囊奥语",
+        "山水",
+        "玄空",
+        "五行"
+      ],
       "module": "fengshui",
-      "scenarios": ["风水理气说明", "住宅环境解释"],
+      "scenarios": [
+        "风水理气说明",
+        "住宅环境解释"
+      ],
       "source_reference": "青囊奥语_杨筠松.md > 青囊奥语",
-      "copyright_status": "待确认",
-      "review_status": "待审核",
+      "copyright_status": "可使用",
+      "review_status": "已审核",
       "risk_reminder": "本条仅用于风水传统文化解释，不构成现实结果承诺、建筑安全意见或专业设计建议。",
-      "uncertainty_notes": "用户提供整理文本，文件注明据四库全书本整理并与维基文库本核对，仍需确认使用范围。"
+      "uncertainty_notes": "用户提供整理文本，文件注明据四库全书本整理并与维基文库本核对，仍需确认使用范围。 用户已于 2026-06-19 确认来源、版本、可用范围和正式产品使用。"
     }
   ]
 }
