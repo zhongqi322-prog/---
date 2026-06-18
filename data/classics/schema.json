@@ -12,7 +12,8 @@
     "scenarios",
     "source_reference",
     "copyright_status",
-    "review_status"
+    "review_status",
+    "risk_reminder"
   ],
   "optional_fields": [
     "author_or_period",
@@ -62,6 +63,7 @@
     "source_reference": "",
     "copyright_status": "待确认",
     "review_status": "待用户提供",
+    "risk_reminder": "本条仅用于传统文化解释，不构成现实结果承诺。",
     "uncertainty_notes": ""
   }
 }
