@@ -264,8 +264,8 @@ P5 发布测试阶段
 - [x] Vercel 网页端部署指南已生成
 - [x] 公开地址 smoke test 脚本已生成
 - [x] 公开地址 smoke test 脚本已通过本地生产服务验证
-- [ ] Vercel 公开地址已生成
-- [ ] 公开地址 smoke test 已完成
+- [x] Vercel 公开地址已生成
+- [x] 公开地址 smoke test 已完成
 
 审核结果：
 - [x] 已生成 P5 审核报告
@@ -274,6 +274,7 @@ P5 发布测试阶段
 - [x] 已复审 P5 内容：本地检查通过，Vercel 公开部署仍阻塞
 - [x] 已修复 P5 复审建议项：补充网页端部署方案和公开地址 smoke test 脚本
 - [x] 已生成 P5 审核修复报告
+- [x] Vercel 公开地址 `https://laozuzong-xuanxue.vercel.app` 已通过 smoke test
 
 ## 历史任务
 
