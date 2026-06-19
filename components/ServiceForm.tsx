@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import type { ServiceConfig } from "@/data/services";
+import { generateMockReport } from "@/lib/mock-report";
 import type { StoredReport } from "@/lib/records";
 import { saveRecord } from "@/lib/records";
 import { ReportCard } from "./ReportCard";
@@ -19,6 +20,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
     const question =
       String(formData.get("question") || formData.get("wish") || formData.get("dream") || formData.get("topic") || "").trim() ||
       service.highlight;
+    const generatedReport = generateMockReport(service, formData);
     const nextReport: StoredReport = {
       id: `R-${Date.now()}`,
       serviceSlug: service.slug,
@@ -26,6 +28,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
       question,
       createdAt: new Date().toISOString(),
       unlocked: false,
+      generatedReport,
     };
 
     saveRecord(nextReport);

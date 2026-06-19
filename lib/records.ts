@@ -1,4 +1,5 @@
 import type { ServiceSlug } from "@/data/services";
+import type { GeneratedReport } from "@/lib/mock-report";
 
 export type StoredReport = {
   id: string;
@@ -7,6 +8,7 @@ export type StoredReport = {
   question: string;
   createdAt: string;
   unlocked: boolean;
+  generatedReport?: GeneratedReport;
 };
 
 export const recordsKey = "fengshui-ai-site:mock-reports";
