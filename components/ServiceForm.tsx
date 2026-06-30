@@ -37,19 +37,23 @@ export function ServiceForm({ service }: ServiceFormProps) {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-      <form className="space-y-4 rounded-[2rem] border border-white/70 bg-white/70 p-5 shadow-card" onSubmit={submit}>
+      <form className="paper-panel space-y-4 p-5" onSubmit={submit}>
+        <div>
+          <p className="text-sm font-semibold text-[#9f3f2f]">填写资料</p>
+          <h2 className="mt-1 text-2xl font-semibold">生成文化参考报告</h2>
+        </div>
         {service.fields.map((field) => (
           <label className="block" key={field.name}>
-            <span className="mb-2 block text-sm font-semibold text-ink">{field.label}</span>
+            <span className="mb-2 block text-sm font-semibold text-[#2f241d]">{field.label}</span>
             {field.type === "textarea" ? (
               <textarea
-                className="min-h-28 w-full rounded-2xl border border-muted/15 bg-paper px-4 py-3 text-sm outline-none focus:border-cinnabar"
+                className="field-control min-h-28"
                 name={field.name}
                 placeholder={field.placeholder}
               />
             ) : field.type === "select" ? (
               <select
-                className="w-full rounded-2xl border border-muted/15 bg-paper px-4 py-3 text-sm outline-none focus:border-cinnabar"
+                className="field-control"
                 name={field.name}
               >
                 {field.options?.map((option) => (
@@ -58,7 +62,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
               </select>
             ) : (
               <input
-                className="w-full rounded-2xl border border-muted/15 bg-paper px-4 py-3 text-sm outline-none focus:border-cinnabar"
+                className="field-control"
                 name={field.name}
                 placeholder={field.placeholder}
                 type={field.type}
@@ -67,10 +71,11 @@ export function ServiceForm({ service }: ServiceFormProps) {
           </label>
         ))}
 
-        <button className="w-full rounded-full bg-cinnabar px-5 py-3 text-sm font-semibold text-white" type="submit">
+        <button className="gold-button w-full" type="submit">
           生成 mock 报告
+          <span className="ml-2">→</span>
         </button>
-        <p className="text-xs leading-6 text-muted">
+        <p className="text-xs leading-6 text-[#5f4a37]">
           当前不接真实 AI。提交后只生成本地 mock 报告，并写入 localStorage。
         </p>
       </form>
@@ -78,7 +83,7 @@ export function ServiceForm({ service }: ServiceFormProps) {
       {report ? (
         <ReportCard report={report} service={service} />
       ) : (
-        <div className="rounded-[2rem] border border-dashed border-gold/50 bg-white/45 p-6 text-sm leading-7 text-muted">
+        <div className="mystic-panel flex min-h-80 items-center p-6 text-sm leading-7 text-[#c9b38b]">
           填写左侧表单后，这里会展示统一报告结构：简要结论、用户资料整理、分析结果、古籍出处占位、现实建议和风险提醒。
         </div>
       )}

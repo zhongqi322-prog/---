@@ -2,51 +2,56 @@ import Link from "next/link";
 import { huangli, services } from "@/data/services";
 import { ClassicsCitation } from "@/components/ClassicsCitation";
 import { RiskNotice } from "@/components/RiskNotice";
+import { RotatingBagua } from "@/components/RotatingBagua";
 
 export default function HomePage() {
   return (
     <div className="space-y-8">
-      <section className="grid gap-6 rounded-[2.2rem] border border-white/70 bg-white/65 p-6 shadow-card lg:grid-cols-[1.3fr_0.7fr] lg:p-10">
+      <section className="grid gap-6 overflow-hidden rounded-[2.2rem] border border-gold/35 bg-[#07100f] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.35)] lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
         <div>
-          <p className="text-sm font-semibold text-cinnabar">中文版 MVP mock 原型</p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+          <p className="text-sm font-semibold text-[#d9a85f]">中文版 MVP mock 原型</p>
+          <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#f9e6bf] sm:text-5xl">
             传统术数古籍 AI 解读平台
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-[#d8c5a1]">
             基于古籍出处与结构化规则，为八字、紫微斗数、风水、易经、解梦、相术等问题提供有解释、有边界的文化参考。
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link className="rounded-full bg-cinnabar px-6 py-3 text-center text-sm font-semibold text-white" href="#services">
+            <Link className="rounded-full bg-[#d9a85f] px-6 py-3 text-center text-sm font-semibold text-[#17100a]" href="#services">
               开始提问
             </Link>
-            <Link className="rounded-full border border-muted/20 px-6 py-3 text-center text-sm font-semibold text-muted" href="#risk">
+            <Link className="rounded-full border border-gold/45 px-6 py-3 text-center text-sm font-semibold text-[#f5d7a0]" href="#risk">
               查看风险说明
             </Link>
           </div>
         </div>
 
-        <section className="rounded-[2rem] bg-paper p-5">
-          <p className="text-sm font-semibold text-cinnabar">{huangli.dateLabel}</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">今日黄历卡片</h2>
-          <dl className="mt-4 space-y-3 text-sm leading-7 text-muted">
-            <div>
-              <dt className="font-semibold text-ink">宜</dt>
-              <dd>{huangli.suitable.join("、")}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-ink">忌</dt>
-              <dd>{huangli.avoid.join("、")}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-ink">五行</dt>
-              <dd>{huangli.wuxing}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-ink">吉时</dt>
-              <dd>{huangli.luckyHours.join("、")}</dd>
-            </div>
-          </dl>
-        </section>
+        <div className="flex items-center justify-center">
+          <RotatingBagua size={520} />
+        </div>
+      </section>
+
+      <section className="rounded-[2rem] bg-paper p-5 shadow-card">
+        <p className="text-sm font-semibold text-cinnabar">{huangli.dateLabel}</p>
+        <h2 className="mt-2 text-2xl font-semibold text-ink">今日黄历卡片</h2>
+        <dl className="mt-4 grid gap-3 text-sm leading-7 text-muted sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <dt className="font-semibold text-ink">宜</dt>
+            <dd>{huangli.suitable.join("、")}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-ink">忌</dt>
+            <dd>{huangli.avoid.join("、")}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-ink">五行</dt>
+            <dd>{huangli.wuxing}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-ink">吉时</dt>
+            <dd>{huangli.luckyHours.join("、")}</dd>
+          </div>
+        </dl>
       </section>
 
       <section id="services" className="space-y-4">

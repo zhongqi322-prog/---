@@ -35,7 +35,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "bazi",
     title: "八字解读",
-    subtitle: "基于出生资料和当前问题生成 mock 八字文化参考报告。",
+    subtitle: "出生资料整理，提供八字文化参考。",
     category: "命理",
     paid: false,
     highlight: "适合梳理性格、阶段节奏和行动建议。",
@@ -50,8 +50,8 @@ export const services: ServiceConfig[] = [
   },
   {
     slug: "ziwei",
-    title: "紫微斗数付费报告",
-    subtitle: "作为付费增强内容展示更细分的人生领域 mock 分析。",
+    title: "紫微斗数",
+    subtitle: "星曜结构参考，梳理人生议题。",
     category: "命理增强",
     paid: true,
     highlight: "先看免费摘要，再通过 mock 支付解锁完整报告。",
@@ -67,7 +67,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "marriage",
     title: "姻缘解惑",
-    subtitle: "帮助用户把关系问题结构化，得到有边界的文化参考。",
+    subtitle: "关系问题梳理，提供沟通参考。",
     category: "关系",
     paid: false,
     highlight: "专注关系困惑和沟通建议，帮助用户把问题说清楚。",
@@ -81,7 +81,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "fengshui",
     title: "住宅风水",
-    subtitle: "基于住宅信息给出 mock 空间观察和现实可执行建议。",
+    subtitle: "环境格局观察，提供整理建议。",
     category: "空间",
     paid: false,
     highlight: "强调采光、动线、整洁和安全，不承诺现实结果。",
@@ -96,7 +96,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "yijing",
     title: "易经问事",
-    subtitle: "把纠结问题结构化，通过 mock 卦象获得象征性解释。",
+    subtitle: "问题结构化整理，提供象征性参考。",
     category: "问事",
     paid: false,
     highlight: "适合用于决策梳理，不替代专业判断。",
@@ -110,7 +110,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "wish",
     title: "祈福心愿",
-    subtitle: "用于心愿记录、祝福表达和线下祈愿流程展示。",
+    subtitle: "记录心愿祈福，表达祝福与善念。",
     category: "祝福",
     paid: true,
     highlight: "第一版只做 mock 流程，不承诺现实结果。",
@@ -124,7 +124,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "dream",
     title: "周公解梦",
-    subtitle: "根据梦境关键词提供传统文化角度的 mock 解释。",
+    subtitle: "梦境关键词整理，提供文化象征参考。",
     category: "解梦",
     paid: false,
     highlight: "把梦境当作情绪和经验的整理线索。",
@@ -138,7 +138,7 @@ export const services: ServiceConfig[] = [
   {
     slug: "palm",
     title: "手相解析",
-    subtitle: "提供手相图片上传 mock 流程和传统相术示例报告。",
+    subtitle: "手纹特征观察，提供相术文化参考。",
     category: "相术",
     paid: false,
     highlight: "第一版不做真实图像识别，只展示产品流程。",
@@ -153,25 +153,25 @@ export const services: ServiceConfig[] = [
   {
     slug: "classics",
     title: "古籍问答",
-    subtitle: "围绕传统术数术语和古籍片段做白话解释占位。",
+    subtitle: "术语知识问答，典籍片段解读。",
     category: "知识",
     paid: false,
-    highlight: "真实古籍出处将在 P3 阶段接入。",
+    highlight: "围绕已审核古籍片段做白话解释和边界说明。",
     fields: [
       { name: "topic", label: "想问的术语或主题", type: "text", placeholder: "例如：五行、纳音、太极、宫位。" },
       { name: "question", label: "具体问题", type: "textarea", placeholder: "请说明你想理解什么。" },
     ],
     reportPoints: ["概念解释占位", "古籍出处占位", "现实应用边界"],
-    cautions: ["当前不生成正式古籍结论", "不编造古籍原文"],
+    cautions: ["不生成无出处结论", "不编造古籍原文"],
   },
 ];
 
 export const huangli = {
   dateLabel: "今日黄历 mock",
-  suitable: ["整理计划", "学习研究", "沟通协商"],
+  suitable: ["整理计划", "学习研究", "沟通协商", "记录心愿"],
   avoid: ["冲动决策", "恐惧消费", "绝对化判断"],
-  wuxing: "木火相生 mock",
-  clash: "冲煞信息待接入",
+  wuxing: "五行提示 mock",
+  clash: "冲煞信息 mock",
   luckyHours: ["辰时", "午时", "申时"],
   reminder: "今日适合把问题写清楚，再做下一步判断。",
 };
