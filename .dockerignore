@@ -11,6 +11,15 @@ output
 .env.*.local
 
 cloudbase-static-upload.zip
+_next
+_not-found
+404
+records
+service
+404.html
+index.html
+index.txt
+__next.*.txt
 *.log
 *.tmp
 *.temp
