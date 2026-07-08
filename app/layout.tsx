@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BackgroundMusic } from "@/components/BackgroundMusic";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({
             本站当前为可点击测试版。内容仅用于传统文化参考、自我整理与产品流程测试，不构成现实结果承诺，不替代医疗、法律、投资等专业建议。
           </footer>
         </div>
+        <BackgroundMusic />
       </body>
     </html>
   );
