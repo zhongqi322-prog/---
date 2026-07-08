@@ -7,7 +7,11 @@
     "build": "next build --webpack",
     "build:static": "node scripts/build-static.mjs",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:ai": "node scripts/ai_report_api_check.mjs",
+    "test:p6": "set PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers&& node scripts/p6_www_smoke_test.mjs",
+    "test:p6:install": "set PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers&& set PLAYWRIGHT_DOWNLOAD_HOST=https://npmmirror.com/mirrors/playwright&& playwright install --only-shell chromium",
+    "test:p6:with-browser": "set PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers&& set PLAYWRIGHT_DOWNLOAD_HOST=https://npmmirror.com/mirrors/playwright&& playwright install --only-shell chromium && node scripts/p6_www_smoke_test.mjs"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -21,6 +25,7 @@
     "autoprefixer": "10.4.22",
     "eslint": "9.39.2",
     "eslint-config-next": "16.2.9",
+    "playwright": "^1.61.0",
     "postcss": "8.5.6",
     "tailwindcss": "3.4.18",
     "typescript": "5.9.3"

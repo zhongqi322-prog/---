@@ -52,15 +52,15 @@ function firstFilled(values: FormValues, keys: string[], fallback: string) {
 
 function moduleLabel(slug: ServiceSlug) {
   const labels: Record<ServiceSlug, string> = {
-    bazi: "八字 mock 推理",
-    ziwei: "紫微斗数 mock 推理",
-    marriage: "姻缘解惑 mock 分析",
-    fengshui: "住宅风水 mock 初评",
-    yijing: "易经 mock 起卦",
-    wish: "祈福心愿 mock 记录",
-    dream: "周公解梦 mock 解释",
-    palm: "手相解析 mock 流程",
-    classics: "古籍问答 mock 解释",
+    bazi: "八字测试推理",
+    ziwei: "紫微斗数测试推理",
+    marriage: "姻缘解惑测试分析",
+    fengshui: "住宅风水测试初评",
+    yijing: "易经示例起卦",
+    wish: "祈福心愿测试记录",
+    dream: "周公解梦测试解释",
+    palm: "手相解析测试流程",
+    classics: "古籍问答测试解释",
   };
 
   return labels[slug];
@@ -74,23 +74,23 @@ function buildMockAnalysis(service: ServiceConfig, values: FormValues): string[]
   ];
 
   if (service.slug === "bazi") {
-    return [...shared, "mock 推理会把出生日期、时辰和当前问题整理为五行倾向、阶段节奏和行动建议三部分。"];
+    return [...shared, "测试推理会把出生日期、时辰和当前问题整理为五行倾向、阶段节奏和行动建议三部分。"];
   }
 
   if (service.slug === "ziwei") {
-    return [...shared, "mock 推理会展示命盘结构、重点宫位和付费增强报告的内容层级，但不做真实排盘。"];
+    return [...shared, "测试推理会展示命盘结构、重点宫位和付费增强报告的内容层级，但不做真实排盘。"];
   }
 
   if (service.slug === "fengshui") {
-    return [...shared, "mock 初评优先关注采光、动线、整洁、安全和空间使用习惯，不承诺现实结果。"];
+    return [...shared, "测试初评优先关注采光、动线、整洁、安全和空间使用习惯，不承诺现实结果。"];
   }
 
   if (service.slug === "yijing") {
-    return [...shared, "mock 起卦以固定示例卦象表达“先整理问题，再决定行动”的象征性建议。"];
+    return [...shared, "示例起卦以固定示例卦象表达“先整理问题，再决定行动”的象征性建议。"];
   }
 
   if (service.slug === "dream") {
-    return [...shared, "mock 解梦把梦境视为情绪、记忆和经验的整理线索，只提供传统文化角度的象征解释。"];
+    return [...shared, "测试解梦把梦境视为情绪、记忆和经验的整理线索，只提供传统文化角度的象征解释。"];
   }
 
   if (service.slug === "palm") {
@@ -98,7 +98,7 @@ function buildMockAnalysis(service: ServiceConfig, values: FormValues): string[]
   }
 
   if (service.slug === "wish") {
-    return [...shared, "心愿模块只做心愿记录、祝福表达和 mock 流程展示，不承诺现实结果。"];
+    return [...shared, "心愿模块只做心愿记录、祝福表达和模拟流程展示，不承诺现实结果。"];
   }
 
   return [...shared, "古籍问答会优先把术语、出处和使用边界讲清楚，不生成无出处结论。"];
@@ -142,11 +142,11 @@ export function generateMockReport(service: ServiceConfig, formData: FormData): 
   const citations = buildCitations(service, question);
   const huangliLine =
     service.slug === "bazi" || service.slug === "yijing"
-      ? `今日黄历 mock 提醒：宜${huangli.suitable[0]}，忌${huangli.avoid[0]}。`
+      ? `今日黄历测试提醒：宜${huangli.suitable[0]}，忌${huangli.avoid[0]}。`
       : null;
 
   return {
-    summary: `${service.title}已生成结构化 mock 报告。当前结论只作为传统文化参考和产品流程验证。`,
+    summary: `${service.title}已生成结构化测试报告。当前结论只作为传统文化参考和产品流程验证。`,
     userProfile: Object.entries(values)
       .filter(([, value]) => value)
       .map(([key, value]) => `${key}: ${value}`)
@@ -155,8 +155,8 @@ export function generateMockReport(service: ServiceConfig, formData: FormData): 
     analysis: huangliLine ? [...analysis, huangliLine] : analysis,
     realitySuggestions: buildRealitySuggestions(service),
     avoidActions: service.cautions,
-    followUps: ["你最想先验证哪一个小行动？", "是否需要把报告保存到我的记录？", "是否需要解锁完整 mock 报告结构？"],
+    followUps: ["你最想先验证哪一个小行动？", "是否需要把报告保存到我的记录？", "是否需要查看完整测试报告结构？"],
     citations,
-    riskReminder: "本报告为传统文化与产品 mock 展示，不构成医疗、法律、投资、心理诊断或现实结果承诺。",
+    riskReminder: "本报告为传统文化与产品测试展示，不构成医疗、法律、投资、心理诊断或现实结果承诺。",
   };
 }

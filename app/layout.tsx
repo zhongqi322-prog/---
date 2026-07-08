@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "老祖宗玄学｜传统术数古籍 AI 解读平台",
-  description: "中文版传统术数古籍 AI 解读平台 MVP，基于古籍出处、结构化规则与风险边界生成 mock 解读报告。",
+  description: "中文版传统术数古籍 AI 解读平台 MVP，基于古籍出处、结构化规则与风险边界生成测试解读报告。",
 };
 
 export default function RootLayout({
@@ -41,8 +41,8 @@ export default function RootLayout({
             </nav>
           </header>
           <main className="flex-1">{children}</main>
-          <footer className="mt-10 rounded-3xl border border-gold/25 bg-black/25 p-5 text-sm leading-7 text-[#c9b38b]">
-            本站当前为可点击 mock 原型。内容仅用于传统文化参考、自我整理与产品流程测试，不构成现实结果承诺，不替代医疗、法律、投资等专业建议。
+          <footer className="mt-10 rounded-3xl border border-gold/35 bg-[#fff8e8] p-5 text-sm font-medium leading-7 text-[#4f3b2c] shadow-card">
+            本站当前为可点击测试版。内容仅用于传统文化参考、自我整理与产品流程测试，不构成现实结果承诺，不替代医疗、法律、投资等专业建议。
           </footer>
         </div>
       </body>

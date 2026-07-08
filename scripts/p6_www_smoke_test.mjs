@@ -1,11 +1,13 @@
 /* global console, process */
 
 import { createRequire } from 'node:module';
+import { mkdir } from 'node:fs/promises';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('playwright-core');
+const { chromium } = require('playwright');
 
 const baseUrl = (process.argv[2] || 'https://www.laozuzongxuanxue.cn').replace(/\/$/, '');
+const screenshotDir = 'output/playwright';
 
 const requiredAfterReport = [
   '古籍出处',
@@ -14,6 +16,26 @@ const requiredAfterReport = [
   '白话解释：',
   '与本问题的关系：',
   '风险提醒',
+];
+
+const mockUnlockTexts = [
+  '完整报告未模拟解锁',
+  '查看模拟解锁说明',
+  '不会跳转微信支付',
+  '不会输入付款密码',
+  '不会产生真实扣款',
+];
+
+const paymentModalTexts = [
+  '模拟解锁说明',
+  '当前不会真实付款',
+  '不会跳转微信支付',
+  '不会输入付款密码',
+  '不会从任何账户扣钱',
+  '不会真实扣款',
+  '不会产生真实订单',
+  '只是演示未来付费解锁的页面流程',
+  '我理解，模拟解锁',
 ];
 
 async function assertText(page, expected, scope = 'page') {
@@ -36,60 +58,98 @@ if (process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE) {
   launchOptions.executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
 }
 
+await mkdir(screenshotDir, { recursive: true });
+
 const browser = await chromium.launch(launchOptions);
-const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
 try {
-  await assertRoute(page, '/');
-  await assertText(page, ['今日黄历', '八字解读', '风险说明'], 'home');
-
-  const routes = [
-    '/service/bazi/',
-    '/service/ziwei/',
-    '/service/marriage/',
-    '/service/fengshui/',
-    '/service/yijing/',
-    '/service/wish/',
-    '/service/dream/',
-    '/service/palm/',
-    '/service/classics/',
-    '/records/',
+  const viewports = [
+    ['desktop', { width: 1366, height: 900 }],
+    ['mobile', { width: 390, height: 844 }],
   ];
 
-  for (const route of routes) {
-    await assertRoute(page, route);
-  }
+  for (const [label, viewport] of viewports) {
+    const page = await browser.newPage({ viewport });
+    const consoleErrors = [];
+    const failedResponses = [];
 
-  await assertRoute(page, '/service/bazi/');
+    page.on('console', (message) => {
+      if (message.type() === 'error') {
+        consoleErrors.push(message.text());
+      }
+    });
+    page.on('response', (response) => {
+      const status = response.status();
+      const url = response.url();
+      if (status >= 400 && !url.includes('favicon.ico') && !url.includes('/api/reports')) {
+        failedResponses.push(`${status} ${url}`);
+      }
+    });
 
-  const fields = [
-    ['input[name="name"]', '测试用户'],
-    ['input[name="birthDate"]', '1990-01-01'],
-    ['input[name="birthTime"]', '08:00'],
-    ['textarea[name="question"]', '想了解接下来工作方向'],
-  ];
+    try {
+      await page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
+      await page.evaluate(() => globalThis.localStorage.clear());
+      await assertText(page, ['今日黄历', '八字解读', '免费摘要 + 模拟解锁', '风险说明'], `${label} home`);
+      await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-home.png` });
 
-  for (const [selector, value] of fields) {
-    const field = page.locator(selector);
-    if ((await field.count()) > 0) {
-      await field.fill(value);
+      await assertRoute(page, '/service/wish/');
+      await assertText(page, ['祈福心愿', '线下寺庙', '祈福', '点灯', '不承诺灵验'], `${label} wish`);
+      await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-wish.png` });
+
+      await assertRoute(page, '/service/ziwei/');
+      await assertText(page, ['紫微斗数', '古籍与文化说明', '填写资料', '先看免费摘要，再通过模拟解锁'], `${label} ziwei`);
+
+      const fields = [
+        ['input[name="birthDate"]', '1990-01-01'],
+        ['input[name="birthTime"]', '08:00'],
+        ['select[name="gender"]', '男'],
+        ['textarea[name="focus"]', '想了解接下来工作方向'],
+      ];
+
+      for (const [selector, value] of fields) {
+        const field = page.locator(selector);
+        if ((await field.count()) > 0) {
+          if (selector.startsWith('select')) {
+            await field.selectOption(value);
+          } else {
+            await field.fill(value);
+          }
+        }
+      }
+
+      await page.getByRole('button', { name: '生成 AI 参考报告' }).click();
+      await page.getByText('报告编号').waitFor({ timeout: 60000 });
+      await assertText(page, requiredAfterReport, `${label} mock report`);
+      await assertText(page, mockUnlockTexts, `${label} mock unlock prompt`);
+      await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-ziwei-report.png` });
+
+      await page.getByText('查看模拟解锁说明').click();
+      await page.waitForTimeout(400);
+      await assertText(page, paymentModalTexts, `${label} payment modal`);
+      await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-payment-modal.png` });
+
+      await page.getByText('我理解，模拟解锁').click();
+      await page.waitForTimeout(400);
+      await assertText(page, ['完整报告已模拟解锁', '没有真实付款', '没有真实订单', '没有真实扣款'], `${label} mock unlocked`);
+
+      await assertRoute(page, '/records/');
+      await page.waitForTimeout(800);
+      await assertText(page, ['紫微斗数', '已模拟解锁'], `${label} records`);
+      await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-records.png` });
+
+      const blockingErrors = consoleErrors.filter((message) => {
+        if (message.includes('Failed to load resource')) {
+          return false;
+        }
+        return true;
+      });
+      if (blockingErrors.length > 0 || failedResponses.length > 0) {
+        throw new Error(`${label} browser errors: ${[...blockingErrors, ...failedResponses].join(' | ')}`);
+      }
+    } finally {
+      await page.close();
     }
   }
-
-  await page.locator('button[type="submit"]').click();
-  await page.waitForTimeout(800);
-  await assertText(page, requiredAfterReport, 'mock report');
-
-  await page.getByText('解锁完整报告').click();
-  await page.waitForTimeout(400);
-  await assertText(page, ['mock 支付', '不会产生真实扣款'], 'mock payment modal');
-
-  await page.getByText('mock 支付成功').click();
-  await page.waitForTimeout(400);
-  await assertText(page, ['完整报告已 mock 解锁'], 'mock unlock');
-
-  await assertRoute(page, '/records/');
-  await assertText(page, ['八字解读'], 'records');
 
   console.log(`p6-www-smoke passed: ${baseUrl}`);
 } finally {

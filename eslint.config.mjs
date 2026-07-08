@@ -5,7 +5,9 @@ export default [
   {
     ignores: [
       ".next/**",
+      ".playwright-browsers/**",
       "node_modules/**",
+      "output/**",
       "out/**",
       "_next/**",
       "_not-found/**",

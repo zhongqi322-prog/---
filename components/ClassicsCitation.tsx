@@ -11,7 +11,7 @@ export function ClassicsCitation({ citations = [] }: ClassicsCitationProps) {
       <div className="space-y-3">
         {citations.length === 0 ? (
           <div className="paper-inset p-4 text-sm leading-7">
-            进入具体功能并生成 mock 报告后，这里会展示已审核、可使用且可追溯到 raw 文件的古籍出处。
+            进入具体功能并生成测试报告后，这里会展示已审核、可使用且可追溯到原始资料的古籍出处。
           </div>
         ) : null}
         {citations.map((citation) => (

@@ -19,16 +19,16 @@ export function RecordsClient() {
       </Link>
       <section className="mystic-panel relative overflow-hidden p-6 sm:p-8">
         <div className="absolute -right-20 -top-24 h-56 w-56 rounded-full border border-gold/25" />
-        <p className="text-sm font-semibold tracking-[0.24em] text-[#d9a85f]">LOCAL STORAGE</p>
+        <p className="text-sm font-semibold tracking-[0.24em] text-[#d9a85f]">本机浏览器记录</p>
         <h1 className="mt-2 text-4xl font-semibold text-[#f9e6bf]">我的记录轻量版</h1>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-[#d8c5a1]">
-          第一版不做完整账户系统，只读取本机浏览器 localStorage。清除浏览器数据后记录会丢失。
+          第一版不做完整账户系统，只读取本机浏览器记录。清除浏览器数据后记录会丢失。
         </p>
       </section>
 
       {records.length === 0 ? (
         <div className="paper-panel p-6 text-sm leading-7 text-[#5f4a37]">
-          暂无记录。请先进入任意功能页生成 mock 报告。
+          暂无记录。请先进入任意功能页生成测试报告。
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
@@ -42,7 +42,7 @@ export function RecordsClient() {
               <h2 className="mt-2 text-xl font-semibold text-[#2f241d]">{record.serviceTitle}</h2>
               <p className="mt-3 line-clamp-2 text-sm leading-7 text-[#5f4a37]">{record.question}</p>
               <p className="mt-3 text-xs text-[#5f4a37]">{new Date(record.createdAt).toLocaleString("zh-CN")}</p>
-              <p className="mt-3 text-sm font-semibold text-[#7a431f]">{record.unlocked ? "已 mock 解锁" : "免费摘要"}</p>
+              <p className="mt-3 text-sm font-semibold text-[#7a431f]">{record.unlocked ? "已模拟解锁" : "免费摘要"}</p>
             </Link>
           ))}
         </div>

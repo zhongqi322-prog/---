@@ -62,23 +62,23 @@ def main() -> None:
             if page.locator(selector).count() > 0:
                 page.locator(selector).fill(value)
 
-        page.locator('button[type="submit"]').click()
-        page.wait_for_timeout(600)
+        page.get_by_role("button", name="生成 AI 参考报告").click()
+        page.get_by_text("报告编号").wait_for(timeout=60000)
         text = page.locator("body").inner_text()
         missing = [item for item in checks_after_report if item not in text]
         if missing:
             raise AssertionError("Missing report text: " + ", ".join(missing))
 
-        page.get_by_text("解锁完整报告").click()
+        page.get_by_text("查看模拟解锁说明").click()
         page.wait_for_timeout(300)
         modal_text = page.locator("body").inner_text()
-        if "mock 支付" not in modal_text or "不会产生真实扣款" not in modal_text:
+        if "当前不会真实付款" not in modal_text or "不会产生真实扣款" not in modal_text:
             raise AssertionError("Mock payment warning missing")
 
-        page.get_by_text("mock 支付成功").click()
+        page.get_by_text("我理解，模拟解锁").click()
         page.wait_for_timeout(300)
         unlocked_text = page.locator("body").inner_text()
-        if "完整报告已 mock 解锁" not in unlocked_text:
+        if "完整报告已模拟解锁" not in unlocked_text:
             raise AssertionError("Unlock state missing")
 
         page.goto(f"{base_url}/records", wait_until="networkidle")

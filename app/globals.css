@@ -13,8 +13,9 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(200, 148, 63, 0.18), transparent 34rem),
-    linear-gradient(180deg, #f8f1e5 0%, #fffaf2 48%, #f6ead8 100%);
+    radial-gradient(circle at top left, rgba(216, 168, 95, 0.16), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(159, 63, 47, 0.12), transparent 30rem),
+    linear-gradient(180deg, #07100f 0%, #10201d 38%, #f6ead8 38%, #fff8e8 100%);
   color: #2f241d;
 }
 
@@ -27,4 +28,34 @@ textarea {
 
 ::selection {
   background: rgba(159, 63, 47, 0.18);
+}
+
+@layer components {
+  .mystic-panel {
+    @apply rounded-[1.75rem] border border-gold/35 bg-[#07100f] shadow-[0_26px_80px_rgba(0,0,0,0.34)];
+  }
+
+  .paper-panel {
+    @apply rounded-[1.5rem] border border-[#dfc18e] bg-[#fff8e8] text-[#2f241d] shadow-card;
+  }
+
+  .paper-inset {
+    @apply rounded-[1rem] border border-[#e2c99f] bg-[#f8f1e5] text-[#4f3b2c];
+  }
+
+  .field-control {
+    @apply w-full rounded-xl border border-[#c7a46b] bg-[#fffdf8] px-4 py-3 text-sm leading-6 text-[#2f241d] shadow-inner outline-none transition placeholder:text-[#8d7966] focus:border-[#9f3f2f] focus:ring-2 focus:ring-[#c8943f]/35;
+  }
+
+  .gold-button {
+    @apply rounded-xl bg-[#c8943f] px-5 py-3 text-sm font-semibold text-[#17100a] shadow-[0_12px_30px_rgba(120,77,29,0.25)] transition hover:bg-[#d9a85f] focus:outline-none focus:ring-2 focus:ring-[#2f241d]/25;
+  }
+
+  .dark-button {
+    @apply rounded-xl bg-[#07100f] px-5 py-3 text-sm font-semibold text-[#f9e6bf] shadow-[0_12px_30px_rgba(0,0,0,0.24)] transition hover:bg-[#10201d] focus:outline-none focus:ring-2 focus:ring-[#c8943f]/45;
+  }
+
+  .seal-icon {
+    @apply flex shrink-0 items-center justify-center rounded-full border-2 border-[#d9a85f] bg-[#10201d] font-semibold text-[#ffe0a3] shadow-[0_0_24px_rgba(216,168,95,0.24)];
+  }
 }

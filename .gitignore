@@ -4,6 +4,8 @@ node_modules/
 out/
 dist/
 coverage/
+.playwright-browsers/
+output/playwright/
 
 # Static export copied to repository root for manual upload
 _next/

@@ -9,6 +9,8 @@ export type StoredReport = {
   createdAt: string;
   unlocked: boolean;
   generatedReport?: GeneratedReport;
+  reportSource?: "ai" | "local-test";
+  generationNote?: string;
 };
 
 export const recordsKey = "fengshui-ai-site:mock-reports";

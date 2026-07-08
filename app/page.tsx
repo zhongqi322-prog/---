@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="space-y-8">
       <section className="grid gap-6 overflow-hidden rounded-[2.2rem] border border-gold/35 bg-[#07100f] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.35)] lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
         <div>
-          <p className="text-sm font-semibold text-[#d9a85f]">中文版 MVP mock 原型</p>
+          <p className="text-sm font-semibold text-[#d9a85f]">中文版 MVP 测试版</p>
           <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#f9e6bf] sm:text-5xl">
             传统术数古籍 AI 解读平台
           </h1>
@@ -31,7 +31,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] bg-paper p-5 shadow-card">
+      <section className="paper-panel p-5">
         <p className="text-sm font-semibold text-cinnabar">{huangli.dateLabel}</p>
         <h2 className="mt-2 text-2xl font-semibold text-ink">今日黄历卡片</h2>
         <dl className="mt-4 grid gap-3 text-sm leading-7 text-muted sm:grid-cols-2 lg:grid-cols-4">
@@ -62,17 +62,18 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Link
-              className="group rounded-[2rem] border border-white/70 bg-white/70 p-5 shadow-card transition hover:-translate-y-1"
+              className="group flex min-h-[18rem] flex-col rounded-[1.5rem] border border-gold/30 bg-[#fff8e8] p-5 shadow-card transition hover:-translate-y-1 hover:border-gold/60"
               href={`/service/${service.slug}`}
               key={service.slug}
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full bg-paper px-3 py-1 text-xs font-semibold text-cinnabar">{service.category}</span>
-                {service.paid ? <span className="text-xs text-gold">可 mock 解锁</span> : null}
+                {service.paid ? <span className="text-xs text-gold">可模拟解锁</span> : null}
               </div>
               <h3 className="mt-4 text-xl font-semibold text-ink">{service.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{service.subtitle}</p>
-              <p className="mt-4 text-sm font-semibold text-cinnabar">进入页面 →</p>
+              <p className="mt-3 text-sm leading-7 text-[#4f3b2c]">{service.subtitle}</p>
+              <p className="mt-3 text-sm leading-7 text-[#654b35]">{service.description}</p>
+              <p className="mt-auto pt-4 text-sm font-semibold text-cinnabar">进入页面 →</p>
             </Link>
           ))}
         </div>
@@ -80,11 +81,11 @@ export default function HomePage() {
 
       <section className="grid gap-5 lg:grid-cols-2">
         <ClassicsCitation />
-        <div className="rounded-3xl border border-white/70 bg-white/70 p-5 shadow-card">
+        <div className="paper-panel p-5">
           <p className="text-sm font-semibold text-cinnabar">付费报告示例</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">免费摘要 + mock 解锁</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">免费摘要 + 模拟解锁</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            每个功能页都可生成免费 mock 摘要。完整报告通过 mock 支付弹窗解锁，不产生真实扣款。
+            每个功能页都可生成免费测试摘要。完整报告通过“模拟解锁”弹窗展示后续付费流程，不会跳转支付，也不会产生真实扣款。
           </p>
           <Link className="mt-5 inline-block rounded-full bg-cinnabar px-5 py-3 text-sm font-semibold text-white" href="/service/ziwei">
             查看紫微付费示例
