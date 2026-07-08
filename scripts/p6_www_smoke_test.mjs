@@ -46,8 +46,22 @@ async function assertText(page, expected, scope = 'page') {
   }
 }
 
+async function acknowledgeCloudBaseTestDomain(page) {
+  const text = await page.locator('body').innerText();
+  if (!text.includes('页面访问提示') || !text.includes('CloudBase')) {
+    return;
+  }
+
+  const confirmButton = page.getByRole('button', { name: /确定访问/ });
+  await confirmButton.waitFor({ timeout: 8000 });
+  await page.waitForTimeout(3500);
+  await confirmButton.click();
+  await page.waitForLoadState('networkidle');
+}
+
 async function assertRoute(page, route) {
   const response = await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle' });
+  await acknowledgeCloudBaseTestDomain(page);
   if (!response || response.status() >= 400) {
     throw new Error(`Route failed: ${route} (${response?.status() ?? 'no response'})`);
   }
@@ -81,13 +95,21 @@ try {
     page.on('response', (response) => {
       const status = response.status();
       const url = response.url();
+      const isCloudBaseNoticeRoot =
+        baseUrl.includes('tcloudbase.com') &&
+        status === 404 &&
+        (url === `${baseUrl}/` || url === baseUrl);
       if (status >= 400 && !url.includes('favicon.ico') && !url.includes('/api/reports')) {
+        if (isCloudBaseNoticeRoot) {
+          return;
+        }
         failedResponses.push(`${status} ${url}`);
       }
     });
 
     try {
       await page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
+      await acknowledgeCloudBaseTestDomain(page);
       await page.evaluate(() => globalThis.localStorage.clear());
       await assertText(page, ['今日黄历', '八字解读', '免费摘要 + 模拟解锁', '风险说明'], `${label} home`);
       await page.screenshot({ caret: 'initial', fullPage: true, path: `${screenshotDir}/p6-${label}-home.png` });

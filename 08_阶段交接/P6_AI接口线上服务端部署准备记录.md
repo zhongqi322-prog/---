@@ -24,6 +24,12 @@
 - `https://www.laozuzongxuanxue.cn/api/reports` 的 GET 请求返回 HTML 页面，不是 API 响应。
 - 结论：当前公开环境仍不具备真实 AI 服务端接口能力。
 
+CloudBase 云托管默认公网域名检查：
+
+- `https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com/` 返回服务端 Next.js 应用。
+- `https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com/api/reports` 已通过 `test:ai` POST 验证。
+- 结论：默认云托管域名已具备真实 AI 服务端接口能力；正式 `www` 域名尚未切换到该服务端环境。
+
 ## 3. 已完成准备
 
 1. 新增 `scripts/ai_report_api_check.mjs`。
@@ -64,6 +70,9 @@ npm run test:ai -- https://你的线上域名
 - `npm run build` 通过。
 - `npm run build:static` 通过。
 - `docker --version` 本机检查超时，未完成本地 Docker 镜像构建验证。
+- `npm run test:ai -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com` 通过。
+- `npm run test:p6 -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com` 通过。
+- P6 smoke 脚本已补充 CloudBase 默认测试域名“页面访问提示”的自动确认逻辑。
 
 `test:ai` 输出摘要：
 
@@ -105,9 +114,16 @@ npm run test:ai -- https://www.laozuzongxuanxue.cn
 npm run test:p6 -- https://www.laozuzongxuanxue.cn
 ```
 
+默认云托管域名已验证：
+
+```powershell
+npm run test:ai -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com
+npm run test:p6 -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com
+```
+
 ## 6. 阶段审核
 
-评分：90 / 100。
+评分：94 / 100。
 
 通过项：
 
@@ -115,22 +131,22 @@ npm run test:p6 -- https://www.laozuzongxuanxue.cn
 - 线上验证脚本已补齐。
 - 部署文档已从静态托管改为服务端 / 静态兜底双路径。
 - 当前公开域名 API 状态已复查，明确仍不是服务端 API 环境。
+- CloudBase 云托管默认公网域名已完成线上 AI 接口和 P6 浏览器流程验证。
+- 云端构建失败原因已逐项修复：锁文件、路径别名、构建依赖、运行时端口和监听地址。
 
 扣分项：
 
-- 尚未执行生产部署。
-- 尚未在线上配置 `DEEPSEEK_API_KEY`。
-- 尚未获得腾讯云具体服务端产品形态和临时地址。
-- API Key 已在对话中出现过，正式上线前应重新生成。
+- 正式 `www.laozuzongxuanxue.cn` 尚未切换到服务端环境。
+- API Key 已在对话截图中出现过，正式对外发布前应重新生成。
 
 ## 7. 下一步
 
-进入生产部署前需要用户参与，因为这涉及腾讯云账号、线上环境变量、密钥和生产部署。
+默认云托管域名已验收通过。进入正式域名切换前仍需要用户参与，因为这涉及腾讯云账号、CDN / 域名配置、线上环境变量、密钥和生产环境变更。
 
 建议用户先确认：
 
-1. 当前腾讯云项目是否支持云托管 / 云函数 / Next.js 服务端运行。
-2. 是否准备把当前静态托管迁移到服务端部署。
-3. 正式上线前是否重新生成 DeepSeek API Key。
+1. 正式 `www.laozuzongxuanxue.cn` 是否切换到 CloudBase 云托管服务端环境。
+2. 正式对外发布前是否重新生成 DeepSeek API Key 并替换线上环境变量。
+3. 切换正式域名后，重新执行 `test:ai` 和 `test:p6`。
 
 支付阶段继续暂停。
