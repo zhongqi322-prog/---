@@ -21,14 +21,14 @@
 当前公开域名检查：
 
 - `https://www.laozuzongxuanxue.cn/` 返回 200。
-- `https://www.laozuzongxuanxue.cn/api/reports` 的 GET 请求返回 HTML 页面，不是 API 响应。
-- 结论：当前公开环境仍不具备真实 AI 服务端接口能力。
+- `https://www.laozuzongxuanxue.cn/api/reports` 的 POST 请求已通过 `test:ai` 验证。
+- 结论：正式 `www` 域名已具备真实 AI 服务端接口能力。
 
 CloudBase 云托管默认公网域名检查：
 
 - `https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com/` 返回服务端 Next.js 应用。
 - `https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com/api/reports` 已通过 `test:ai` POST 验证。
-- 结论：默认云托管域名已具备真实 AI 服务端接口能力；正式 `www` 域名尚未切换到该服务端环境。
+- 结论：默认云托管域名和正式 `www` 域名均已具备真实 AI 服务端接口能力。
 
 ## 3. 已完成准备
 
@@ -72,6 +72,8 @@ npm run test:ai -- https://你的线上域名
 - `docker --version` 本机检查超时，未完成本地 Docker 镜像构建验证。
 - `npm run test:ai -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com` 通过。
 - `npm run test:p6 -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbase.com` 通过。
+- `npm run test:ai -- https://www.laozuzongxuanxue.cn` 通过。
+- `npm run test:p6 -- https://www.laozuzongxuanxue.cn` 通过。
 - P6 smoke 脚本已补充 CloudBase 默认测试域名“页面访问提示”的自动确认逻辑。
 
 `test:ai` 输出摘要：
@@ -136,17 +138,17 @@ npm run test:p6 -- https://fengshui-ai-site-279596-9-1302687317.sh.run.tcloudbas
 
 扣分项：
 
-- 正式 `www.laozuzongxuanxue.cn` 尚未切换到服务端环境。
 - API Key 已在对话截图中出现过，正式对外发布前应重新生成。
+- 背景音乐当前默认不启用；待有授权音频文件后再配置 `NEXT_PUBLIC_BACKGROUND_MUSIC_SRC`。
 
 ## 7. 下一步
 
-默认云托管域名已验收通过。进入正式域名切换前仍需要用户参与，因为这涉及腾讯云账号、CDN / 域名配置、线上环境变量、密钥和生产环境变更。
+默认云托管域名和正式 `www` 域名均已验收通过。后续生产变更仍需要用户参与，因为涉及腾讯云账号、线上环境变量、密钥、支付和生产数据。
 
 建议用户先确认：
 
-1. 正式 `www.laozuzongxuanxue.cn` 是否切换到 CloudBase 云托管服务端环境。
-2. 正式对外发布前是否重新生成 DeepSeek API Key 并替换线上环境变量。
-3. 切换正式域名后，重新执行 `test:ai` 和 `test:p6`。
+1. 正式对外发布前是否重新生成 DeepSeek API Key 并替换线上环境变量。
+2. 是否进入报告保存、用户记录持久化或后台管理设计。
+3. 是否恢复真实支付、订单、退款和结算专项设计。
 
 支付阶段继续暂停。
