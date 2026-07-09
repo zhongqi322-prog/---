@@ -1,35 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-const musicSrc = "/audio/background.mp3";
+const musicSrc = process.env.NEXT_PUBLIC_BACKGROUND_MUSIC_SRC?.trim();
 
 export function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [available, setAvailable] = useState(false);
   const [playing, setPlaying] = useState(false);
 
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch(musicSrc, { method: "HEAD", cache: "no-store" })
-      .then((response) => {
-        if (!cancelled && response.ok) {
-          setAvailable(true);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setAvailable(false);
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  if (!available) {
+  if (!musicSrc) {
     return null;
   }
 
