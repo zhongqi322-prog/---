@@ -87,6 +87,56 @@ function ensureStringArray(value: unknown, fallback: string[]) {
   return items.slice(0, 5);
 }
 
+function sanitizeReportText(text: string, serviceSlug: ServiceSlug) {
+  const replacements: Partial<Record<ServiceSlug, Array<[RegExp, string]>>> = {
+    bazi: [
+      [/八字为/g, "出生资料显示"],
+      [/日主/g, "个人状态"],
+      [/四柱/g, "出生资料"],
+      [/十神/g, "传统术语"],
+      [/大运/g, "长期阶段"],
+      [/流年/g, "未来一段时间"],
+    ],
+    ziwei: [
+      [/命盘/g, "资料结构"],
+      [/宫位/g, "关注领域"],
+      [/星曜落点/g, "传统术语关系"],
+      [/大限流年/g, "长期与阶段性议题"],
+    ],
+    yijing: [
+      [/起卦/g, "问题整理"],
+      [/得卦/g, "象意参考"],
+    ],
+    wish: [
+      [/官方寺庙/g, "线下场所"],
+      [/消灾必成/g, "祝福表达"],
+      [/灵验/g, "心理安定感"],
+      [/改命/g, "调整行动方向"],
+      [/治病/g, "关注健康"],
+    ],
+  };
+
+  return (replacements[serviceSlug] ?? []).reduce(
+    (current, [pattern, replacement]) => current.replace(pattern, replacement),
+    text,
+  );
+}
+
+function sanitizeAiPayload(payload: AiReportPayload, serviceSlug: ServiceSlug): AiReportPayload {
+  const cleanText = (text: string) => sanitizeReportText(text, serviceSlug);
+  const cleanItems = (items: string[]) => items.map(cleanText);
+
+  return {
+    summary: cleanText(payload.summary),
+    userProfile: cleanText(payload.userProfile),
+    restatedQuestion: cleanText(payload.restatedQuestion),
+    analysis: cleanItems(payload.analysis),
+    realitySuggestions: cleanItems(payload.realitySuggestions),
+    avoidActions: cleanItems(payload.avoidActions),
+    followUps: cleanItems(payload.followUps),
+  };
+}
+
 function normalizeAiPayload(rawText: string, fallbackQuestion: string): AiReportPayload {
   const parsed = JSON.parse(rawText) as Partial<AiReportPayload>;
 
@@ -144,6 +194,7 @@ function buildPrompt(input: {
     "你是传统文化参考报告撰写助手，只能基于用户填写资料和提供的古籍片段做白话整理。",
     "必须遵守：不承诺现实结果；不替代医疗、法律、投资、心理诊断或重大人生决策；不编造古籍；不使用恐吓和诱导消费话术。",
     "禁止自行完成真实八字排盘、紫微排盘、易经起卦、手相图片识别、梦境预兆断定或风水吉凶断定。",
+    "输出正文不得使用具体排盘或断事术语，例如：日主、四柱、十神、大运、流年、命盘、宫位、星曜落点、起卦、得卦。",
     "如果用户问题涉及健康、投资、法律、建筑安全或重大人生选择，必须提醒回到专业意见和现实证据。",
     getServiceBoundary(input.serviceSlug),
     "输出必须是 JSON，不要包含 Markdown。",
@@ -227,7 +278,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "AI response did not contain output text." }, { status: 502 });
     }
 
-    const aiReport = normalizeAiPayload(outputText, question);
+    const aiReport = sanitizeAiPayload(normalizeAiPayload(outputText, question), service.slug);
     const report: GeneratedReport = {
       ...aiReport,
       citations,
